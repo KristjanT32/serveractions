@@ -1,0 +1,89 @@
+languageName: "English (US)"
+
+commands:
+  scheduleaction:
+    delayed:
+      success: "&aServer action scheduled to occur in &b%delay% &aseconds."
+      delay_too_short: "&f[&c!&f] &cDelay too short. A server action can be scheduled no sooner than &f%delay% seconds after command execution&c."
+      another_scheduled: "&f[&c!&f] &cCannot schedule action - &eanother delayed action has already been scheduled."
+      syntax: "&f[&c!&f] &cInvalid syntax: &f/scheduleaction &edelayed &7<action> <delayInSeconds>"
+    scheduled:
+      success: "&aServer action scheduled to take place on &f%date% &aat &f%time%&a."
+      invalid_format: "&f[&c!&f] &cInvalid date/time format. &eUse &fdd/MM/yyyy HH:mm:ss &efor date/time."
+      already_scheduled: "&f[&c!&f] &cAn action is already scheduled for that time."
+      syntax: "&f[&c!&f] &cInvalid syntax: &f/scheduleaction &escheduled &7<action> <date> <time>"
+    cancel:
+      divider: "&e=========================================="
+      header: "\n&bCurrently scheduled restarts &f(&b%restartCount%&f)"
+      subheader: "\n&7You may hover over the scheduled restarts to view info, or click on them to cancel."
+      item_prefix: "\n&f- "
+      item: "&e[&f%datetime%&e]"
+      hovertext: "&fAction: &b%action%\n&fScheduled for: &b%datetime%\n&fInitiator: %initiator%"
+      action_labels:
+        restart: "Server restart"
+        stop: "Server shutdown"
+        reload: "Server reload"
+        save: "Server save"
+      label_unknown: "unknown"
+      cancelled: "&aRestart for &f%datetime% &acancelled."
+      cancelled_delayed: "&aDelayed action cancelled."
+      no_delayed_restart_scheduled: "&f[&c!&f] &cThere's no delayed action in progress."
+      schedule_invalid: "&f[&c!&f] &cThere are no restarts scheduled for that date/time."
+      invalid_format: "&f[&c!&f] &cInvalid date/time format. &eUse &fdd/MM/yyyy HH:mm:ss &efor date/time."
+      syntax: "&f[&c!&f] &cInvalid syntax: &f/scheduleaction &ecancel &7<delayed/scheduled>"
+    unknown_action: "&f[&c!&f] &cUnknown action &f'&b%action%&f'"
+    syntax: "&f[&c!&f] &cInvalid syntax: &f/scheduleaction &7<delayed/scheduled/cancel> <action> <delayInSeconds/date/[delayed]>"
+  lang:
+    set:
+      success: "&aPlugin language successfully set to &e%lang%&a."
+      not_found: "&f[&c!&f] &cLanguage not found - are you sure a language file has been provided for this language?"
+    update_default:
+      done: "&aDefault language file refreshed."
+      nofile: "&f[&c!&f] &cThe default language file couldn't be refreshed, since no embedded copies were found."
+    update_folder:
+      done: "&aEmbedded localizations reimported successfully."
+      err: "&f[&c!&f] &cSomething went wrong while reimporting embedded localizations."
+
+    reload:
+      done: "&aCurrent language file reloaded."
+    syntax: "&f[&c!&f] &cInvalid syntax: &f/lang &7<set|&7refreshDefault|&7reload> &7<languageCode|&7null|&7null>"
+
+messages:
+  broadcast:
+    restart:
+      announce_delayed: "&c&lAttention! &r&cA server restart has been scheduled to occur in &e%delay%&c!"
+      announce_scheduled: "&c&lAttention! &r&cA server restart has been scheduled to occur on &f%date% at &f%time%&c!"
+      final_countdown: "&eThe server will be restarted in &b%countdown%&e!"
+    reload:
+      announce_delayed: "&c&lAttention! &r&cA server reload has been scheduled to occur in &e%delay%&c!"
+      announce_scheduled: "&c&lAttention! &r&cA server reload has been scheduled to occur on &f%date% at &f%time%&c!"
+      final_countdown: "&eThe server will be reloaded in &b%countdown%&e!"
+    stop:
+      announce_delayed: "&c&lAttention! &r&cA server shutdown has been scheduled to occur in &e%delay%&c!"
+      announce_scheduled: "&c&lAttention! &r&cA server shutdown has been scheduled to occur on &f%date% at &f%time%&c!"
+      final_countdown: "&eThe server will be shut down in &b%countdown%&e!"
+    save:
+      announce_delayed: "&c&lAttention! &r&cA server save has been scheduled to occur in &e%delay%&c!"
+      announce_scheduled: "&c&lAttention! &r&cA server save has been scheduled to occur on &f%date% at &f%time%&c!"
+      final_countdown: "&eThe server will save in &b%countdown%&e!"
+  bossbar:
+    restart:
+      title_scheduled: "&fThe server will restart at &b%time%"
+      title_delayed: "&eThe server will restart in &b%time%&e"
+      countdown: "&e&lRestarting in &r&b%countdown%"
+      final_countdown: "&c&lRestarting in &r&e%countdown%"
+    reload:
+      title_scheduled: "&fThe server will reload at &b%time%"
+      title_delayed: "&eThe server will reload in &b%time%&e"
+      countdown: "&e&lReloading in &r&b%countdown%"
+      final_countdown: "&c&lReloading in &r&e%countdown%"
+    stop:
+      title_scheduled: "&fThe server will shut down at &b%time%"
+      title_delayed: "&eThe server will shut down in &b%time%&e"
+      countdown: "&e&lShutting down in &r&b%countdown%"
+      final_countdown: "&c&lShutting down in &r&e%countdown%"
+    save:
+      title_scheduled: "&fThe server will save at &b%time%"
+      title_delayed: "&eThe server will save in &b%time%&e"
+      countdown: "&e&lSaving in &r&b%countdown%"
+      final_countdown: "&c&lSaving in &r&e%countdown%"

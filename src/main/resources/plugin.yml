@@ -1,0 +1,19 @@
+name: RestartPlus
+version: '${project.version}'
+main: krisapps.restartplus.RestartPlus
+api-version: '1.19'
+
+commands:
+  scheduleaction:
+    usage: "/scheduleaction <delayed/scheduled/cancel> <action> <delayInSeconds/date/delayed|scheduled>"
+    description: "Schedules a server action to occur in <delay> seconds."
+    permission: restartplus.*
+    permission-message: "Good one, jokester. Administrator only."
+  lang:
+    usage: "/lang <set|refreshDefault|reload> <languageCode|null|null>"
+    description: "Changes the plugin's language. Can also be used to refresh the default language file."
+    permission: restartplus.*
+permissions:
+  restartplus.*:
+    description: "Literally the only permission that exists. Required for the usage of plugin command(s)."
+    default: op

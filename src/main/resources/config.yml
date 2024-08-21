@@ -1,0 +1,16 @@
+# Configuration file for ${project.name} ${project.version}
+
+settings:
+  actions:
+    restart:
+      showBossbar: true
+      consoleCommand: "restart"
+    reload:
+      showBossbar: true
+      consoleCommand: "reload"
+    shutdown:
+      showBossbar: true
+      consoleCommand: "stop"
+    save:
+      showBossbar: true
+      consoleCommand: "save-all"

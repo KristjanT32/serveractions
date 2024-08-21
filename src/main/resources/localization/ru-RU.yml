@@ -1,0 +1,89 @@
+languageName: "Русский (RU)"
+
+commands:
+  scheduleaction:
+    delayed:
+      success: "&aДействие будет произведено через &b%delay% &aсекунд."
+      delay_too_short: "&f[&c!&f] &cСлишком короткая задержка. Действие может быть произведено не ранее чем &f%delay% секунд после прописания команды&c."
+      another_scheduled: "&f[&c!&f] &cЗапланировать действие не удалось - &eдействие с задержкой уже запланировано."
+      syntax: "&f[&c!&f] &cНеверный синтаксис: &f/scheduleaction &edelayed &7<action> <delayInSeconds>"
+    scheduled:
+      success: "&aДействие будет произведено &f%date% &aв &f%time%&a."
+      invalid_format: "&f[&c!&f] &cНеверный формат даты/времени. &Используйте формат &fdd/MM/yyyy HH:mm:ss &eдля указания дат и времени."
+      already_scheduled: "&f[&c!&f] &cНа это время уже запланировано действие."
+      syntax: "&f[&c!&f] &cНеверный синтаксис: &f/scheduleaction &escheduled &7<action> <date> <time>"
+    cancel:
+      divider: "&e=========================================="
+      header: "\n&bЗапланированные действия &f(&b%restartCount%&f)"
+      subheader: "\n&7Наведите курсор на запись для просмотра информации, или нажмите на неё для отмены выбранной записи."
+      item_prefix: "\n&f- "
+      item: "&e[&f%datetime%&e]"
+      hovertext: "&fТип действия: &b%action%\n&fДата действия: &b%datetime%\n&fЗапрошено игроком: %initiator%"
+      action_labels:
+        restart: "Перезагрузка сервера"
+        stop: "Выключение сервера"
+        reload: "Перезагрузка конфигурации сервера"
+        save: "Сохранение сервера"
+      label_unknown: "неизвестно"
+      cancelled: "&aДействие &f%datetime% &aотменено."
+      cancelled_delayed: "&aДействие с задержкой отменено."
+      no_delayed_restart_scheduled: "&f[&c!&f] &cДействий с задержкой не запланировано."
+      schedule_invalid: "&f[&c!&f] &cНа эту дату/время не назначено действий."
+      invalid_format: "&f[&c!&f] &cНеверный формат даты/времени. &eИспользуйте формат &fdd/MM/yyyy HH:mm:ss &eдля указания дат/времени."
+      syntax: "&f[&c!&f] &cНеверный синтаксис: &f/scheduleaction &ecancel &7<delayed/scheduled>"
+    unknown_action: "&f[&c!&f] &cНеизвестное действие &f'&b%action%&f'"
+    syntax: "&f[&c!&f] &cНеверный синтаксис: &f/scheduleaction &7<delayed/scheduled/cancel> <action> <delayInSeconds/date/[delayed]>"
+  lang:
+    set:
+      success: "&aЯзык плагина установлен на &e%lang%&a."
+      not_found: "&f[&c!&f] &cЯзык не найден. Вы уверены, что для этого языка имеется языковой файл?"
+    update_default:
+      done: "&aВстроенный языковой файл перезагружен."
+      nofile: "&f[&c!&f] &cВстроенный языковой файл не обнаружен."
+    update_folder:
+      done: "&aВстроенные языковые файлы перезагружены успешно."
+      err: "&f[&c!&f] &cЧто-то пошло не так во время перезагрузки встроенных языковых файлов."
+
+    reload:
+      done: "&aТекущий языковой файл перезагружен."
+    syntax: "&f[&c!&f] &cНеверный синтаксис: &f/lang &7<set|&7refreshDefault|&7reload> &7<languageCode|&7null|&7null>"
+
+messages:
+  broadcast:
+    restart:
+      announce_delayed: "&c&lВнимание! &r&cСервер будет планово перезагружен через &e%delay%&c!"
+      announce_scheduled: "&c&lВнимание! &r&cСервер будет планово перезагружен &f%date% в &f%time%&c!"
+      final_countdown: "&eСервер перезагрузится через &b%countdown%&e!"
+    reload:
+      announce_delayed: "&c&lВнимание! &r&cКонфигурации сервера будут планово перезагружены через &e%delay%&c!"
+      announce_scheduled: "&c&lВнимание! &r&cКонфигурации сервера будут планово перезагружены &f%date% в &f%time%&c!"
+      final_countdown: "&eПерезагрузка конфигурации через &b%countdown%&e!"
+    stop:
+      announce_delayed: "&c&lВнимание! &r&cСервер будет планово выключен через &e%delay%&c!"
+      announce_scheduled: "&c&lВнимание! &r&cСервер будет планово выключен &f%date% в &f%time%&c!"
+      final_countdown: "&eСервер будет выключен через &b%countdown%&e!"
+    save:
+      announce_delayed: "&c&lВнимание! &r&cПлановое сохранение сервера будет произведено через &e%delay%&c!"
+      announce_scheduled: "&c&lВнимание! &r&cПлановое сохранение сервера будет произведено &f%date% в &f%time%&c!"
+      final_countdown: "&eСохранение сервера через &b%countdown%&e!"
+  bossbar:
+    restart:
+      title_scheduled: "&fСервер будет перезагружен &b%time%"
+      title_delayed: "&eСервер будет перезагружен через &b%time%&e"
+      countdown: "&e&lПерезагрузка сервера через &r&b%countdown%"
+      final_countdown: "&c&lПерезагрузка сервера через &r&e%countdown%"
+    reload:
+      title_scheduled: "&fКонфигурации сервера будут перезагружены &b%time%"
+      title_delayed: "&eКонфигурации сервера будут перезагружены через &b%time%&e"
+      countdown: "&e&lПерезагрузка конфигурации через &r&b%countdown%"
+      final_countdown: "&c&lПерезагрузка конфигурации через &r&e%countdown%"
+    stop:
+      title_scheduled: "&fСервер будет выключен &b%time%"
+      title_delayed: "&eСервер будет выключен через &b%time%&e"
+      countdown: "&e&lВыключение сервера через &r&b%countdown%"
+      final_countdown: "&c&lВыключение сервера через &r&e%countdown%"
+    save:
+      title_scheduled: "&fСервер будет сохранен &b%time%"
+      title_delayed: "&eСервер будет сохранен через &b%time%&e"
+      countdown: "&e&lСохранение через &r&b%countdown%"
+      final_countdown: "&c&lСохранение через &r&e%countdown%"
