@@ -1,6 +1,6 @@
-package krisapps.restartplus.commands.tab;
+package krisapps.serveractions.commands.tab;
 
-import krisapps.restartplus.types.ScheduledAction;
+import krisapps.serveractions.types.ScheduledAction;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;

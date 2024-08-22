@@ -1,10 +1,10 @@
-package krisapps.restartplus.commands;
+package krisapps.serveractions.commands;
 
-import krisapps.restartplus.RestartPlus;
-import krisapps.restartplus.types.ScheduledAction;
-import krisapps.restartplus.types.ScheduledActionEntry;
-import krisapps.restartplus.util.ConfigurationUtility;
-import krisapps.restartplus.util.ScheduleManager;
+import krisapps.serveractions.ServerActions;
+import krisapps.serveractions.types.ScheduledAction;
+import krisapps.serveractions.types.ScheduledActionEntry;
+import krisapps.serveractions.util.ConfigurationUtility;
+import krisapps.serveractions.util.ScheduleManager;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -21,7 +21,7 @@ import java.util.Date;
 import java.util.Optional;
 
 public class ScheduleActionCommand implements CommandExecutor {
-    RestartPlus main = RestartPlus.instance;
+    ServerActions main = ServerActions.instance;
 
 
     @Override

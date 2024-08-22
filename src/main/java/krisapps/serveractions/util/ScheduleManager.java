@@ -1,8 +1,8 @@
-package krisapps.restartplus.util;
+package krisapps.serveractions.util;
 
-import krisapps.restartplus.RestartPlus;
-import krisapps.restartplus.types.ScheduledAction;
-import krisapps.restartplus.types.ScheduledActionEntry;
+import krisapps.serveractions.ServerActions;
+import krisapps.serveractions.types.ScheduledAction;
+import krisapps.serveractions.types.ScheduledActionEntry;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.NamespacedKey;
@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 
 public class ScheduleManager {
 
-    static RestartPlus main = RestartPlus.instance;
+    static ServerActions main = ServerActions.instance;
     static BukkitScheduler scheduler = main.getServer().getScheduler();
     static SimpleDateFormat fileDateFormat = new SimpleDateFormat("[dd-MM-yyyy-HH-mm-ss]");
     static KeyedBossBar bossbar;
@@ -79,6 +79,10 @@ public class ScheduleManager {
         }
     }
     private static void showBossbar() {
+        if (Bukkit.getBossBar(bossbarKey) == null) {
+            main.logging.log("Countdown bossbar missing, regenerating...");
+            initBossbar();
+        }
         bossbar.setVisible(true);
     }
     private static void hideBossbar() {
@@ -123,6 +127,7 @@ public class ScheduleManager {
 
     public static void scheduleDelayedAction(int delayInSeconds, ScheduledAction action) {
         if (ConfigurationUtility.getBossbarEnabled(action)) showBossbar();
+        main.logging.log("Scheduled new delayed action " + action.name() + " (delay: " + delayInSeconds + "s)");
 
         int taskId = scheduler.runTaskTimerAsynchronously(main, new Runnable() {
             double timer = 0;
@@ -164,14 +169,17 @@ public class ScheduleManager {
                     }
                 } else {
                     bossbar.setProgress(1);
-                    scheduler.runTask(main, new Runnable() {
+
+                    main.logging.log("Performing delayed action " + action.name());
+                    cancelPendingDelayedAction();
+                    hideBossbar();
+
+                    scheduler.runTaskLater(main, new Runnable() {
                         @Override
                         public void run() {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ConfigurationUtility.getActionCommand(action));
-                            cancelPendingDelayedAction();
-                            hideBossbar();
                         }
-                    });
+                    }, 20L);
                 }
                 timer++;
             }
@@ -249,6 +257,7 @@ public class ScheduleManager {
         main.pluginData.set("pending-action", null);
         main.saveData();
         hideBossbar();
+        main.logging.log("Cancelled active delayed action.");
     }
 
     public static void cancelScheduledActionForDate(Date date) {
@@ -260,10 +269,12 @@ public class ScheduleManager {
 
         removeScheduledActionEntry(date);
         hideBossbar();
+        main.logging.log("Cancelled scheduled action for date " + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(date));
     }
 
     private static void startScheduledActionCountdown(Date restartDate, ScheduledAction action) {
         if (ConfigurationUtility.getBossbarEnabled(action)) showBossbar();
+        main.logging.log("Entered final countdown phase for action " + action.name() + " (" + new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(restartDate) + ")");
 
         long startTime = Date.from(Instant.now()).getTime();
 
@@ -310,13 +321,15 @@ public class ScheduleManager {
                     }
                 } else {
                     bossbar.setProgress(1);
-                    scheduler.runTask(main, new Runnable() {
+                    main.logging.log("Performing action " + action.name());
+                    hideBossbar();
+
+                    scheduler.runTaskLater(main, new Runnable() {
                         @Override
                         public void run() {
                             Bukkit.dispatchCommand(Bukkit.getConsoleSender(), ConfigurationUtility.getActionCommand(action));
-                            hideBossbar();
                         }
-                    });
+                    }, 20L);
                 }
             }
         }, 0L, 20L).getTaskId();

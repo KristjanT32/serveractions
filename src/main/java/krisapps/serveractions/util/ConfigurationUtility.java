@@ -1,11 +1,11 @@
-package krisapps.restartplus.util;
+package krisapps.serveractions.util;
 
-import krisapps.restartplus.RestartPlus;
-import krisapps.restartplus.types.ScheduledAction;
+import krisapps.serveractions.ServerActions;
+import krisapps.serveractions.types.ScheduledAction;
 
 public class ConfigurationUtility {
 
-    static RestartPlus main = RestartPlus.instance;
+    static ServerActions main = ServerActions.instance;
 
     public static int getDefaultRestartDelay() {
         return main.pluginConfig.getInt("settings.default-restart-delay", 30);

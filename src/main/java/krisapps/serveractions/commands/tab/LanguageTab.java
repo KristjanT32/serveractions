@@ -1,6 +1,6 @@
-package krisapps.restartplus.commands.tab;
+package krisapps.serveractions.commands.tab;
 
-import krisapps.restartplus.RestartPlus;
+import krisapps.serveractions.ServerActions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -21,7 +21,7 @@ public class LanguageTab implements TabCompleter {
         }
         if (args.length == 2) {
             if (args[0].equals("set")) {
-                completions.addAll(RestartPlus.instance.localizationUtility.getRecognizedLanguages());
+                completions.addAll(ServerActions.instance.localizationUtility.getRecognizedLanguages());
             }
         }
 

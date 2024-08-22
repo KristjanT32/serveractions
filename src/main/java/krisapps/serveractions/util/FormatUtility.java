@@ -1,6 +1,6 @@
-package krisapps.restartplus.util;
+package krisapps.serveractions.util;
 
-import krisapps.restartplus.RestartPlus;
+import krisapps.serveractions.ServerActions;
 
 import java.time.Duration;
 import java.time.Instant;
@@ -9,8 +9,8 @@ import java.util.concurrent.TimeUnit;
 
 public class FormatUtility {
 
-    RestartPlus main;
-    public FormatUtility(RestartPlus main) {
+    ServerActions main;
+    public FormatUtility(ServerActions main) {
         this.main = main;
     }
 

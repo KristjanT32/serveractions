@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>krisapps</groupId>
-    <artifactId>RestartPlus</artifactId>
+    <artifactId>ServerActions</artifactId>
     <version>1.0-1.19</version>
     <packaging>jar</packaging>
 
-    <name>RestartPlus</name>
+    <name>ServerActions</name>
 
     <properties>
         <java.version>1.8</java.version>

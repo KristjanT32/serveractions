@@ -1,12 +1,12 @@
-package krisapps.restartplus;
+package krisapps.serveractions;
 
-import krisapps.restartplus.commands.Language;
-import krisapps.restartplus.commands.ScheduleActionCommand;
-import krisapps.restartplus.commands.tab.LanguageTab;
-import krisapps.restartplus.commands.tab.ScheduleActionTab;
-import krisapps.restartplus.events.listeners.OnPlayerJoin;
-import krisapps.restartplus.util.FormatUtility;
-import krisapps.restartplus.util.ScheduleManager;
+import krisapps.serveractions.commands.Language;
+import krisapps.serveractions.commands.ScheduleActionCommand;
+import krisapps.serveractions.commands.tab.LanguageTab;
+import krisapps.serveractions.commands.tab.ScheduleActionTab;
+import krisapps.serveractions.events.listeners.OnPlayerJoin;
+import krisapps.serveractions.util.FormatUtility;
+import krisapps.serveractions.util.ScheduleManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public final class RestartPlus extends JavaPlugin {
+public final class ServerActions extends JavaPlugin {
 
     public FileConfiguration pluginConfig;
     public File configFile = new File(getDataFolder(), "config.yml");
@@ -34,7 +34,7 @@ public final class RestartPlus extends JavaPlugin {
     public LocalizationUtility localizationUtility = essentials.localization;
     public LoggingUtility logging = essentials.logging;
 
-    public static RestartPlus instance;
+    public static ServerActions instance;
 
     @Override
     public void onEnable() {

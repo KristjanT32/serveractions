@@ -1,4 +1,4 @@
-package krisapps.restartplus.types;
+package krisapps.serveractions.types;
 
 import org.jetbrains.annotations.NotNull;
 

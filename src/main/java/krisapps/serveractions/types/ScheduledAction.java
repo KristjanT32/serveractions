@@ -1,4 +1,4 @@
-package krisapps.restartplus.types;
+package krisapps.serveractions.types;
 
 public enum ScheduledAction {
     RESTART("settings.actions.restart", "restart"),

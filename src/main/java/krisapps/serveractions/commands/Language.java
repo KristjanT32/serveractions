@@ -1,6 +1,6 @@
-package krisapps.restartplus.commands;
+package krisapps.serveractions.commands;
 
-import krisapps.restartplus.RestartPlus;
+import krisapps.serveractions.ServerActions;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -10,7 +10,7 @@ import java.io.FileNotFoundException;
 
 public class Language implements CommandExecutor {
 
-    RestartPlus main = RestartPlus.instance;
+    ServerActions main = ServerActions.instance;
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
